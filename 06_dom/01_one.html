@@ -1,0 +1,196 @@
+<!-- DOM : Document Object Model
+window -> 
+document -> 
+HTML -> 
+head->                             and       body->
+title->     and    meta->                    div->         
+text node          attributes                h1->                      and    p->
+                                             attribute and text node          text node
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<!-- 
+document.getElementById('title')
+<h1 id=​"title" class=​"test">​"DOM learning on Chai aur code "<span style=​"display:​ none;​">​test text​</span>​</h1>​
+
+document.getElementById('title').id
+'title'
+
+document.getElementById('title').class
+undefined
+
+document.getElementById('title').className
+'heading'
+
+document.getElementById('title').getAttribute('id')
+'title'
+
+document.getElementById('title').setAttribute('class', 'test')      =====>    class 'heading' tha but test usko overwrite kr diya
+undefined
+
+document.getElementById('title').getAttribute('class')
+'test'
+
+document.querySelector('h1')document.querySelector('h1')
+<h1 id=​"title" class=​"heading" style=​"background-color:​ green;​ border-radius:​ 15px;​">​"DOM learning on Chai aur code "<span style=​"display:​ none;​">​test text​</span>​</h1>​
+
+title.style.backgroundColor = "green"
+'green'
+
+title.style.borderRadius = "15px"
+'15px'
+
+title
+<h1 id=​"title" class=​"heading" style=​"background-color:​ green;​ border-radius:​ 15px;​">​…​</h1>​
+
+title.textContent
+'DOM learning on Chai aur code test text'
+
+title.innerHTML
+'DOM learning on Chai aur code <span style="display: none;">test text</span>'
+
+title.innerText
+'DOM learning on Chai aur code'
+
+document.getElementsByClassName('heading')
+HTMLCollection [h1#title.heading, title: h1#title.heading]
+
+document.querySelector('h1')
+<h1 id=​"title" class=​"heading" style=​"background-color:​ green;​ border-radius:​ 15px;​">​…​</h1>​
+
+document.querySelector('h2')
+<h2>​Lorem ipsum dolor sit.​</h2>​
+
+document.querySelector('#title')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+ocument.querySelector('input[type="password"]')
+<input type=​"password" name id>​
+
+document.querySelector('ul')
+<ul>​<li class=​"list-item">​…​</li>​<li class=​"list-item">​…​</li>​<li class=​"list-item">​…​</li>​<li class=​"list-item">​…​</li>​</ul>​
+
+const myUl = document.querySelector('ul')
+undefined
+
+myUl.querySelector('li')
+<li class=​"list-item">​…​</li>​
+
+const myUl = document.querySelector('ul')
+undefined
+
+myUl.querySelector('li')
+<li class=​"list-item">​…​</li>​
+
+const turnGreen = myUl.querySelector('li')
+undefined
+
+turnGreen.style.backgroundColor = "green"
+'green'
+
+turnGreen.style.padding = "10px"
+'10px'
+
+turnGreen.innerText
+'one'
+
+turnGreen.innerText = "five"
+'five'
+
+document.querySelectorAll('li')
+NodeList(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+const tempLiList = document.querySelectorAll('li')
+undefined
+
+tempLiList
+NodeList(4) [li.list-item, li.list-item, li.list-item, li.list-item]  // this is not array it is nodeList hence map cannot be applied use forEach loop instead
+
+tempLiList.style.color = "green"  // this is not done this way
+VM1223:1 Uncaught TypeError: Cannot set properties of undefined (setting 'color')
+    at <anonymous>:1:24
+(anonymous) @ VM1223:1Understand this error
+
+tempLiList[0].style.color = "green"
+'green'
+
+const myH1 = document.querySelectorAll('h1')
+undefined
+
+myH1
+NodeList [h1#title.heading]
+
+myH1.style.color = "green"
+VM1488:1 Uncaught TypeError: Cannot set properties of undefined (setting 'color')
+    at <anonymous>:1:18
+(anonymous) @ VM1488:1Understand this error
+
+myH1[0].style.color = "green"
+'green'
+
+tempLiList.forEach(function (l) {})
+undefined
+
+tempLiList.forEach(function (l) {
+    l.style.backgroundColor = "green"
+})
+undefined
+
+const tempClassList = document.getElementsByClassName('list-item')
+undefined
+
+tempClassList
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+tempClassList.forEach(function (li) {    // foreach can't be used in HTML collection so we have to first convert it in array to use for loop
+    console.log('li')
+})
+VM2118:1 Uncaught TypeError: tempClassList.forEach is not a function
+    at <anonymous>:1:15
+
+Array.from(tempClassList)
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+const myConvertedArray = Array.from(tempClassList)
+undefined
+
+myConvertedArray.forEach(function(li){
+    li.style.color = "orange"
+})
+undefined
+
+-->
